@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
+import Pokemon from './Pokemon';
 
 export default class Pokedex extends Component {
   render() {
-    const { pokemon } = this.props;
-    const { id, name, picture, pictureShiny } = pokemon;
+    const { pokemon, show } = this.props;
 
-    return (
-      <div>
-        <span>
-          <h4>Número: </h4>
-        </span>
-        <h5>{id}</h5>
-        <span>
-          <h4>Nome: </h4>
-        </span>
-        <h5>{name}</h5>
-        <span>
-          <img src={picture} alt={name} />
-          <img src={pictureShiny} alt={name} />
-        </span>
-      </div>
-    );
+    return <div>{show && <Pokemon pokemon={pokemon} />}</div>;
   }
 }
