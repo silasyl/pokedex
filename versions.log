@@ -1,0 +1,11 @@
+v.0.1: (04/06/21)
+
+  - Simple search function by name or number of pokemon (they must be exact);
+  - Returns name, number, picture of normal and shiny versions;
+
+v.0.2: (04/06/21)
+
+  - First letter of name now changed to upper case;
+  - Enter functionality on input textbox implemented;
+  - Input treated: now it accepts upper case;
+  - Input treated: now it accepts number starting with 0;
