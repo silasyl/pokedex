@@ -8,6 +8,4 @@ To implement:
 - Graphic with stats
 - Tags showing type of pokemon
 - Switch button with a figure
-- First letter of name change to UpperCase
-- Implement Enter on input
-- Input treatment: lower case, upper case, filter for partial name, name or number not existing (try/catch)
+- Input treatment: filter for partial name
