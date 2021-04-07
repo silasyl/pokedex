@@ -9,3 +9,4 @@ v.0.2: (04/06/21)
   - Enter functionality on input textbox implemented;
   - Input treated: now it accepts upper case;
   - Input treated: now it accepts number starting with 0;
+  - Input treated: now it shows a warning if the name or number doesn't exist;

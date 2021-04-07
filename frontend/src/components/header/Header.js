@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Pokedex from '../pokedex/Pokedex';
 
 export default class Header extends Component {
   handleInputChange = (event) => {
@@ -18,7 +17,7 @@ export default class Header extends Component {
   };
 
   render() {
-    const { input, pokemonData } = this.props;
+    const { input } = this.props;
 
     return (
       <div>
@@ -32,7 +31,6 @@ export default class Header extends Component {
           onKeyPress={this.handleEnterPress}
         />
         <button onClick={this.handleClick}>BUSCAR</button>
-        <Pokedex pokemon={pokemonData} />
       </div>
     );
   }

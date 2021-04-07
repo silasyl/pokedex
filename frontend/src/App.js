@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
+import Error from './components/pokedex/Error';
+import Pokedex from './components/pokedex/Pokedex';
 
 export default class App extends Component {
   constructor() {
@@ -10,6 +12,7 @@ export default class App extends Component {
       treatedInput: '',
       pokemonData: [],
       showPokemon: false,
+      errorFlag: false,
     };
   }
 
@@ -32,9 +35,10 @@ export default class App extends Component {
       const data = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${searchText}`
       );
-      if (!data.ok) {
-        throw Error('Entre com um nome ou número válido');
+      if (!data.ok || searchText === '') {
+        throw Error('Invalid data');
       }
+
       const json = await data.json();
 
       const { id, name, sprites } = json;
@@ -48,14 +52,26 @@ export default class App extends Component {
 
       this.setState({
         pokemonData: Object.assign([], pokemonData),
+        showPokemon: true,
+        errorFlag: false,
       });
     } catch (err) {
-      console.log(err);
+      if (searchText === '') {
+        this.setState({
+          showPokemon: false,
+          errorFlag: false,
+        });
+      } else {
+        this.setState({
+          showPokemon: false,
+          errorFlag: true,
+        });
+      }
     }
   };
 
   render() {
-    const { input, pokemonData } = this.state;
+    const { input, pokemonData, showPokemon, errorFlag } = this.state;
 
     return (
       <div>
@@ -65,6 +81,8 @@ export default class App extends Component {
           onChangeFilter={this.handleChangeFilter}
           onClickButton={this.handleGetPokemon}
         />
+        <Pokedex pokemon={pokemonData} show={showPokemon} />
+        <>{errorFlag && <Error />}</>
       </div>
     );
   }

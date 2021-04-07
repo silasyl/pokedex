@@ -5,8 +5,6 @@ export default class Pokemon extends Component {
     const { pokemon } = this.props;
     const { id, name, picture, pictureShiny } = pokemon;
 
-    console.log(pokemon);
-
     return (
       <div>
         <span>

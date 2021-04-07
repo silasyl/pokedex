@@ -3,8 +3,8 @@ import Pokemon from './Pokemon';
 
 export default class Pokedex extends Component {
   render() {
-    const { pokemon } = this.props;
+    const { pokemon, show } = this.props;
 
-    return <div>{pokemon && <Pokemon pokemon={pokemon} />}</div>;
+    return <div>{show && <Pokemon pokemon={pokemon} />}</div>;
   }
 }
